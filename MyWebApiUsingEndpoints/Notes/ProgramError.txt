@@ -1,0 +1,10 @@
+﻿Error	CS0121	
+The call is ambiguous between the following methods or properties: 
+   'Microsoft.Extensions.DependencyInjection.MvcOptionsExtensions.UseNamespaceRouteToken(Microsoft.AspNetCore.Mvc.MvcOptions)'  and 
+   'Microsoft.Extensions.DependencyInjection.MvcOptionsExtensions.UseNamespaceRouteToken(Microsoft.AspNetCore.Mvc.MvcOptions)'	
+	 Program.cs	14	Active
+
+```csharp
+//Commented out Extensions\MvcOptionsExtensions.cs!MvcOptions
+builder.Services.AddControllers(options => options.UseNamespaceRouteToken()); // Line 14
+```

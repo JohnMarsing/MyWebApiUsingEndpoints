@@ -1,0 +1,46 @@
+﻿using System.Collections.Generic;
+
+namespace Bible.Domain
+{
+	public class Scripture
+	{
+		public int ID { get; set; }
+		public string BCV { get; set; }
+		public byte BookID { get; set; }
+		public byte Chapter { get; set; }
+		public byte Verse { get; set; }
+		public string KJV { get; set; }
+		public string KJVPlus { get; set; }
+		public string Hebrew1 { get; set; }
+		public string Hebrew2 { get; set; }
+		public string Interlinear { get; set; }
+		public string InterlinearKjv { get; set; }
+		public string VerseOffset { get; set; }
+
+		//Used by Parasha and BookChpater but not VerseList
+		public string Href { get; set; }
+		public string DescD { get; set; }
+		public int OutlineId { get; set; }
+		public int DescLiBeg { get; set; }
+		public int DescLiEnd { get; set; }
+		public string ChapterHeading { get; set; } // Used in BookChapterRepository and ParashaRepository; all formats of .cshtml and by @Html.BookChapterSubHeading
+		public string ChapterHref { get; set; }
+
+		public string AlephTavBCV { get; set; }
+
+
+		public bool IsInTaNaCh
+		{
+			get { if (ID <= VerseFacts.LastVerseInTaNaCh) return true; else return false; }
+		}
+
+		public string CV
+		{
+			get { return Chapter + ":" + Verse; }
+		}
+
+		public override string ToString() => $"{ID}: {BCV}   {BookID} - {Chapter} - {Verse}";
+		//
+
+	}
+}
